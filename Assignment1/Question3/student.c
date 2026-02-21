@@ -27,7 +27,22 @@
 
 int* plusOne(int* digits, int digitsSize, int* returnSize) {
     // TODO: implement
+    for(int i = digitsSize - 1; i >= 0; i--){
+        int add = 1 + digits[i];
 
+        if (add < 10)
+        {
+            digits[i] = add;
+            *returnSize = digitsSize;
+            return digits;
+        }
+        else if (add == 10)
+        {
+            digits[i]= 0;
+            *returnSize = digitsSize;
+        }
+    }
+return digits; 
     
 }
 
