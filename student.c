@@ -1,48 +1,45 @@
 #include "Student.h"
-#include <stdlib.h>
 
-//You are given a large integer represented as an integer array digits, where:
+//You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n:
+//nums1 has length m + n
+//The first m values in nums1 are real elements
+//The last n values in nums1 are placeholders (0)
+//nums2 has length n
+//Goal: Merge nums2 into nums1 so that nums1 becomes one sorted array.
+//Return: Nothing (modify nums1 in-place).
 
-//digits[i] is the i-th digit of the integer
-//digits are ordered from most significant to least significant
-//there are no leading 0s (except the number 0 itself in some of our tests)
-//Goal: Add 1 to the number and return the resulting digits array.
+//Example:
+//Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+//Output: nums1 = [1,2,2,3,5,6]
+//Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
 
-//Example 1:
-//Input: digits = [4,3,2,1]
-//Output: [4,3,2,2]
-//Explanation: The array represents the integer 4321.
-//Incrementing by one gives 4321 + 1 = 4322.
-//Thus, the result should be [4,3,2,2].
+void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
 
-//Example 2:
-//Input: digits = [9]
-//Output: [1,0]
-//Explanation: The array represents the integer 9.
-//Incrementing by one gives 9 + 1 = 10.
-//Thus, the result should be [1,0].
+ // TODO: implement
+ (void)nums1Size;
+ (void)nums2Size;
+    int i = m - 1; 
+    int j = n - 1;
+    int k = m + n -1;
+while (j>=0){
 
-//Return value (int*): the output digits array.
-//Output parameter (returnSize): set *returnSize to the number of digits in the returned array.
+    if (nums1[i]>= nums2[j]){
+        nums1[k]= nums1[i];
+        k=k-1;
+        i =i-1;
+    } 
+    else {
+        nums1[k]=nums2[j];
+        k=k-1;
+        j=j-1;
+    } }
 
-int* plusOne(int* digits, int digitsSize, int* returnSize) {
-    // TODO: implement
+
+
+
     
-    for(int i = digitsSize - 1; i >= 0; i--){
-        int add = 1 + digits[i];
+    
 
-        if (add < 10)
-        {
-            digits[i] = add;
-            *returnSize = digitsSize;
-            return digits;
-        }
-        else if (add == 10)
-        {
-            digits[i]= 0;
-            *returnSize = digitsSize;
-        }
-    }
-return digits; 
+
+
 }
-
