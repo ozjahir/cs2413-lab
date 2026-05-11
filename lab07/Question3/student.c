@@ -31,10 +31,47 @@ Notes:
 - If the array is empty or has only one element, do nothing.
 - The sorting should be done in ascending order.
 */
+void swap(int *x, int *y){
+    int temp = *x;
+    *x=*y;
+    *y= temp;
+}
+
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high];
+    int i = low - 1;
+
+    for (int j = low; j < high; j++) {
+        if (arr[j] <= pivot) {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+
+    swap(&arr[i + 1], &arr[high]);
+
+    return i + 1;
+}
+
+void quickSortHelper(int arr[], int low, int high) {
+    if (low < high) {
+        int pivotIndex = partition(arr, low, high);
+
+        quickSortHelper(arr, low, pivotIndex - 1);
+        quickSortHelper(arr, pivotIndex + 1, high);
+    }
+}
+
 
 void quickSort(int arr[], int size) {
     // TODO: implement quick sort
     (void)arr;
     (void)size;
+
+      if (size <= 1) {
+        return;
+    }
+
+    quickSortHelper(arr, 0, size - 1);
 }
 
